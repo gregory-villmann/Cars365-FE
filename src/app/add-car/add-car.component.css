@@ -1,0 +1,38 @@
+.car-card {
+  width: 60vw;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  justify-content: center;
+
+  display: grid;
+}
+
+mat-form-field {
+  width: 35vw;
+}
+
+button {
+  width: 15vw;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title-container {
+  flex-grow: 1;
+  text-align: center;
+}

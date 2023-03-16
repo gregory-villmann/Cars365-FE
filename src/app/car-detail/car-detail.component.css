@@ -1,0 +1,20 @@
+.car-card {
+  width: 60vw;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title-container {
+  flex-grow: 1;
+  text-align: center;
+}
+

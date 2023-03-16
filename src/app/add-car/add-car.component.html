@@ -1,0 +1,73 @@
+<div class="main">
+  <mat-card class="car-card">
+    <mat-card-header class="header">
+
+      <button mat-icon-button (click)="redirectToHome()" class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+
+      <div class="title-container">
+        <ng-container *ngIf="this.state == 'ADD'; else editingTitle">
+          <mat-card-title>Lisa auto</mat-card-title>
+        </ng-container>
+        <ng-template #editingTitle>
+          <mat-card-title>Muuda autot</mat-card-title>
+        </ng-template>
+      </div>
+
+
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="carForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <mat-label>Mark</mat-label>
+          <input matInput formControlName="make" required />
+          <mat-error *ngIf="carForm.controls['make'].invalid">Mark on kohustuslik</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Mudel</mat-label>
+          <input matInput formControlName="model" required />
+          <mat-error *ngIf="carForm.controls['model'].invalid">Mudel on kohustuslik</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Aasta</mat-label>
+          <input matInput type="number" formControlName="year" required />
+          <mat-error *ngIf="carForm.controls['year'].invalid">Aasta on vale</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Läbisõit</mat-label>
+          <input matInput type="number" formControlName="mileage" required />
+          <mat-error *ngIf="carForm.controls['mileage'].invalid">Läbisõit on vale</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Hind</mat-label>
+          <input matInput type="number" formControlName="price" required />
+          <mat-error *ngIf="carForm.controls['price'].invalid">Hind on vale</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Pilt URL</mat-label>
+          <input matInput formControlName="image" required />
+          <mat-error *ngIf="carForm.controls['image'].invalid">Pilt URL on kohustuslik</mat-error>
+        </mat-form-field>
+
+        <div class="action-buttons">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!carForm.valid">
+            <mat-icon>save</mat-icon> Salvesta
+          </button>
+          <ng-container *ngIf="this.state == 'EDIT'">
+            <button mat-raised-button color="warn" type="button" (click)="deleteCar()">
+              <mat-icon>delete</mat-icon> Kustuta
+            </button>
+          </ng-container>
+        </div>
+
+      </form>
+    </mat-card-content>
+
+  </mat-card>
+</div>

@@ -1,0 +1,49 @@
+<ng-container *ngIf="car$ | async as car">
+  <div class="main">
+    <mat-card class="car-card">
+      <mat-card-header class="header">
+
+        <button mat-icon-button (click)="redirectToHome()" class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+
+        <div class="title-container">
+          <mat-card-title>{{car.make}}</mat-card-title>
+          <mat-card-subtitle>{{car.model}} · {{car.year}}</mat-card-subtitle>
+        </div>
+
+        <button mat-icon-button (click)="redirectToEdit(car.id)" class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>edit</mat-icon>
+        </button>
+
+      </mat-card-header>
+
+      <img mat-card-image src="{{car.image}}" alt="img">
+      <mat-card-content>
+        <table>
+          <tr>
+            <td>Mark:</td>
+            <td>{{car.make}}</td>
+          </tr>
+          <tr>
+            <td>Mudel:</td>
+            <td>{{car.model}}</td>
+          </tr>
+          <tr>
+            <td>Aasta:</td>
+            <td>{{car.year}}</td>
+          </tr>
+          <tr>
+            <td>Läbisõit:</td>
+            <td>{{car.mileage}} km</td>
+          </tr>
+          <tr>
+            <td>Hind:</td>
+            <td>{{car.price}}€</td>
+          </tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</ng-container>
+
