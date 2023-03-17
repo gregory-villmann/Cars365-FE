@@ -24,8 +24,7 @@
 
 mat-card-image {
   height: 200px;
-  width: auto;
-  overflow: hidden;
+  object-fit: cover;
 }
 
 mat-card-content {
