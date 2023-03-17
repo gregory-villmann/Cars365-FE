@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './home/home.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
@@ -17,22 +16,24 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { PageComponent } from './page/page.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 const routes: Routes = [
-  {path: 'cars', component: HomeComponent},
-  {path: '', component: HomeComponent},
+  {path: 'cars', component: PageComponent},
+  {path: '', component: PageComponent},
   {path: 'cars/:id', component: CarDetailComponent},
   {path: 'cars-add', component: AddCarComponent},
-  {path: 'cars/:id/edit', component: AddCarComponent}
+  {path: 'cars/:id/edit', component: AddCarComponent},
 ];
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     CarDetailComponent,
-    AddCarComponent
+    AddCarComponent,
+    PageComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +48,8 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatPaginatorModule
   ],
   exports:[RouterModule],
   providers: [MatSnackBarModule],
