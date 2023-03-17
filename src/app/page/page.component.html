@@ -1,0 +1,17 @@
+<div class="car-container">
+  <ng-container *ngFor="let car of cars">
+    <mat-card  (click)="redirectToDetail(car)" class="car-tile">
+      <img mat-card-image src="{{car.image}}" alt="Car Image">
+      <mat-card-content>
+        <h3>{{car.make}} {{car.model}}</h3>
+        <p>Aasta: {{car.year}}</p>
+        <p>Hind: {{Euro.format(car.price)}}</p>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+
+  <div class="paginator">
+    <mat-paginator [length]="totalCars" [pageSize]="pageSize" [pageSizeOptions]="[16 ,32 ,64]"  [pageIndex]="pageIndex" (page)="onPageChanged($event)"></mat-paginator>
+  </div>
+</div>
+
